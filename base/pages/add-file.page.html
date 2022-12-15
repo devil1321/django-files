@@ -1,0 +1,15 @@
+{% extends 'main.template.html'%}
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="">Name</label>
+    <input type="text" name="name">
+    <label for="">File</label>
+    <input type="file" name="file" id="">
+    <button>Submit</button>
+</form>
+
+{% for file in files %}
+    <a href="{% url 'getFile' file.file %}">{{file.file}}</a>
+{%endfor%}
+{% endblock content %}
